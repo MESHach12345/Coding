@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h3>Add New Player</h3>
+
+    <form onsubmit="submit_data(event, this)">
+        <input type="text" name="player_fullname" placeholder="Name"><br><br>
+        <input type="number" name="player_jersey" placeholder="Jersey Number"><br><br>
+        <input type="text" name="player_club" placeholder="Club"><br><br>
+        <input type="email" name="player_email" placeholder="Club Contact Email"><br><br>
+        <button type="submit">Submit</button>
+    </form>
+
+    <br>
+
+    <h3>Add New Coach</h3>
+
+    <form onsubmit="submit_data(event, this)">
+        <input type="text" name="coach_fullname" placeholder="Name"><br><br>
+        <input type="text" name="coach_club" placeholder="Club"><br><br>
+        <input type="email" name="coach_email" placeholder="Club Contact Email"><br><br>
+        <button type="submit">Submit</button>
+    </form>    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script>
+        
+        var players = [];
+        var coaches = [];
+        
+        function submit_data(e, el) {
+            e.preventDefault();
+
+            var data = new FormData(el);
+            players.push({
+                name : data.get("player_fullname"),
+                jersey: data.get("player_jersey"),
+                club: data.get("player_club"),
+                email: data.get("player_email"),
+            });
+
+            console.log(players);
+
+            coaches.push({
+                name: data.get("coach_fullname"),
+                club: data.get("coach_club"),
+                email: data.get("coach_email"),
+            });
+
+            console.log(coaches);
+
+            // Local Storage
+
+            var playersJSON = JSON.stringify(players);
+            var coachesJSON = JSON.stringify(coaches);
+
+            localStorage.setItem("players_storage", playersJSON);
+            localStorage.setItem("coaches_storage", coachesJSON);
+            
+        }
+    </script>
+
+</body>
+</html>

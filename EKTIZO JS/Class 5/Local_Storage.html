@@ -1,0 +1,49 @@
+<script>
+	var employees = [];
+	var object1 = {
+		name : "Andy",
+		email : "andy@gmail.com",
+		salary : 100,
+	};
+	var object2 = {
+		name : "Budi",
+		email : "budi@gmail.com",
+		salary : 120,
+	};
+	var object3 = {
+		name : "Cindy",
+		email : "cindy@gmail.com",
+		salary : 110,
+	};
+	employees.push(object1);
+	employees.push(object2);
+	employees.push(object3);
+
+
+
+
+	// it will convert an object or array into a format of string 
+	var x = JSON.stringify(employees);
+	// try console.log(x) to see the value of variable x
+
+	console.log(x);
+
+	// save data
+	localStorage.setItem("meshach_storage", x);
+
+	
+
+	// how to load a data
+
+	// loading data	
+	var load_data = localStorage.getItem("meshach_storage");
+
+	var employees = JSON.parse(load_data);
+
+	// you can do the foreach looping again
+	// employees.forEach(function (value, index) {
+
+	// });
+
+
+</script>

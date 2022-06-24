@@ -1,0 +1,4 @@
+INDEX VERSION 1.131+C:\Users\mesha\Desktop\Coding\.metadata\.plugins\org.eclipse.jdt.core
+1057133879.index
+2377579077.index
+1865797976.index

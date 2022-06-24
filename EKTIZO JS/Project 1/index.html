@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project-1</title>
+</head>
+<body>
+    <h2>Price List (Online Picker)</h1>
+    <ul>
+        <li>Car - Rp7.500/km</li>
+        <li>Motorcycle - Rp5.000/km</li>
+    </ul>
+    <hr>
+    Transportation: 
+    <select name="transport" id="transport">
+        <option value="Car">Car</option>
+        <option value="Motor">Motorcycle</option>
+    </select><br><br>
+    Distance: <input type="text" id="distance">
+    Discount: <input type="text" id="discount">
+    <input type="button" value = "Total" onclick="submit()">
+    <hr>
+
+    <div id="result"></div>
+
+</body>
+
+<script>
+    var distanceEl = document.getElementById("distance");
+    var transportEl = document.getElementById("transport");
+    var resultEl = document.getElementById("result");
+    var discountEl = document.getElementById("discount")
+    var priceBeforeDiscount;
+    var finalPrice;
+
+    function submit() {
+
+        if (transportEl.value=="Car") {
+            priceBeforeDiscount = distanceEl.value * 7500;
+        } else {
+            priceBeforeDiscount = distanceEl.value * 5000;
+        }
+
+        finalPrice = priceBeforeDiscount - priceBeforeDiscount*discountEl.value/100;
+
+        result.innerHTML = "You have to pay Rp " + finalPrice;
+
+    }
+</script>
+
+</html>

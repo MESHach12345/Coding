@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project-2</title>
+</head>
+<body>
+    <h2>Vacation Registration</h2>
+    Name <input type="text" id="name" placeholder="Name"><br><br>
+    Gender <input type="text" id="gender" placeholder="Gender"><br><br>
+    Email <input type="text" id="email" placeholder="Email"><br><br>
+    Phone <input type="text" id="phone" placeholder="Phone"><br><br>
+    Number of Friends <input type="text" id="friends" placeholder="Number of Friends"><br><br>
+    <input type="button" value="Submit" onclick="submit()">
+
+    <div id="list">
+
+    </div>
+
+    <div id="finalDisplay">
+
+    </div>
+</body>
+
+<script>
+    var friendsEl = document.getElementById("friends");
+    var listEl = document.getElementById("list");
+
+    function submit() {
+        for (var i = 0; i < friendsEl.value; i++) {
+            listEl.innerHTML += `
+                <h4> Friend ${i+1} </h4>
+                Name <input type="text" placeholder="Name"><br><br>
+                Gender <input type="text" placeholder="Gender"><br><br>
+                Email <input type="text" placeholder="Email"><br><br>
+                Phone <input type="text" placeholder="Phone"><br><br>
+                <br><br><br>
+            `;
+        }
+
+        listEl.innerHTML += `
+            <input type="submit" value="Submit" onclick="finalSubmit()">
+        `;
+    }
+
+    function finalSubmit() {
+
+    }
+
+</script>
+</html>

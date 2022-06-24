@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+<body>
+	<div style="margin-bottom: 3rem;">
+		<h2 style="margin-bottom: 0;">Add Student Form</h2>
+		<form onsubmit="submit_data(event, this)">
+			<input type="text" name="fullname"> <br><br>
+			<input type="email" name="email"> <br><br>
+			<input type="password" name="password"> <br><br>
+			<input type="date" name="birthdate"> <br><br>
+			<input type="radio" name="gender" value="M"> Male 
+			<input type="radio" name="gender" value="F"> Female <br><br>
+			<button type="submit">Submit</button>
+		</form>
+	</div>
+
+	<div style="margin-bottom: 3rem;">
+		<h2 style="margin-bottom: 0;">Add Teacher Form</h2>
+		<form id="add_teacher_form">
+			<input type="text" name="fullname"> <br><br>
+			<input type="email" name="email"> <br><br>
+			<input type="password" name="password"> <br><br>
+			<input type="date" name="birthdate"> <br><br>
+			<input type="radio" name="gender" value="M"> Male 
+			<input type="radio" name="gender" value="F"> Female <br><br>
+			<button type="submit">Submit</button>
+		</form>
+	</div>
+
+	
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script>
+		var students = [];
+		var teachers = [];
+
+		function submit_data(e, el)
+		{
+			e.preventDefault();
+			var data = new FormData(el);	
+			
+			students.push({
+				fullname : data.get("fullname"),
+				email : data.get("email"),
+				password : data.get("password"),
+				birthdate : data.get("birthdate"),
+				gender : data.get("gender"),
+			});
+		}
+
+		// jQuery version
+		$("form#add_teacher_form").on("submit", function() {
+			event.preventDefault();
+			var data = $(this).serializeArray();
+			
+			teachers.push({
+				fullname : data[0].value,
+				email : data[1].value,
+				password : data[2].value,
+				birthdate : data[3].value,
+				gender : data[4].value,
+			});
+
+			/* -------------------------
+			OR USE THIS VERSION BELOW
+			------------------------- */ 
+
+			// var data = new FormData(this);
+			
+			// students.push({
+			// 	fullname : data.get("fullname"),
+			// 	email : data.get("email"),
+			// 	password : data.get("password"),
+			// 	birthdate : data.get("birthdate"),
+			// 	gender : data.get("gender"),
+			// });
+		});
+
+	</script>
+</body>
+</html>

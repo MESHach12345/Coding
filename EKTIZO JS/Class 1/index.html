@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>My Form</h1>
+    Firstname: <input type="text" id="firstname">
+    Lastname: <input type="text" id="lastname">
+    <br><br>
+    Price: <input type="text" id="price">
+    <br><br>
+    <input type="button" value="Click Me" onclick="send()">
+    <br><br>
+    <input type="radio" name = "member" id = "yes_member" value = "y"> Yes
+    <br>
+    <input type="radio" name = "member" id = "no_member" value = "n"> No
+    <br><br>
+    <p id="result"></p>
+
+    <script>
+        function send() {
+            var firstname = document.getElementById("firstname").value;
+            var total;
+            var lastname = document.getElementById("lastname").value;
+            var fullname = firstname + " " + lastname;
+            var price = document.getElementById("price").value;
+            
+            if (price<0) {
+                alert("The Price is not Valid")
+            } else {
+                total = price-10000;
+                if (total<0) {
+                    total = 0;
+                }
+                
+                document.getElementById("result").innerHTML=fullname + " " + total;
+            }
+
+            if (document.getElementById("yes_member").checked) {
+                alert("Welcome");
+            } else {
+                alert("Hi Guest");
+            }
+        }
+
+        alert(confirm())
+
+        var num1 = parseInt(prompt("Input Number 1"));
+        var num2 = parseInt(prompt("Input Number 2"));
+        alert(num1+num2)
+
+        /* HW
+            Input Name
+            Input Gender (Print Mr and Ms)
+            Input Price
+            Input Member (Radio)
+            Input Discount (Only Appear if Member)
+            Input Submit
+            
+        */
+    </script>
+</body>
+</html>

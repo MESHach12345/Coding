@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class-1 HW</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>HW-1</h1>
+    <br>
+    <b>Firstname: </b><input type="text" id="firstname">
+    <br><br>
+    <b>Lastname: </b><input type="text" id="lastname">
+    <br><br>
+    <b>Gender: </b><br><br>
+    <input name="gender" type="radio" id="male" value="Male"> <label for="male">Male</label>
+    <br><br>
+    <input name="gender" type="radio" id="female" value="Female"> <label for="female">Female</label>
+    <br><br>
+    <b>Price: </b> <input type="text" id="price">
+    <br><br>
+    <b>Member: </b><br><br>
+    <input name="member" type="radio" id="yes_member" value="Y" onclick="display()"> <label for="yes_member">Member</label>
+    <br><br>
+    <input name="member" type="radio" id="no_member" value="N" onclick="hide()"> <label for="no_member"> Not Member</label>
+    <br><br>
+    <p id = "conditional">
+        <b>Discount: </b><input type="text" id="discount">
+        <br><br>
+    </p>
+    <input type="button" value="Submit" onclick="print()">
+    <p id = "result"></p>
+
+    <script src= "index.js"></script>
+</body>
+</html>
