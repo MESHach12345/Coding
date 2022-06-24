@@ -1,1 +1,0 @@
-A Quiz App created using HTML, CSS and JavaScript.
