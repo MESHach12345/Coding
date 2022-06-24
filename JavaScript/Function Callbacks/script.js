@@ -1,12 +1,8 @@
-sum(2,3, displayDOM);
+sum(4,3, displayDOM);
 
 function sum(a,b, display) {
-    
-}
-
-function sum(a,b) {
     let result = a+b;
-    return result;
+    display(result);
 }
 
 function displayConsole(output) {
