@@ -49,9 +49,26 @@ public class PlayingCard {
     public String toString() {
         String retString = "[";
         if (this.faceDown) {
-            retString += "%%%";
+            retString += "%%%%";
         } else {
-            retString += value + "-" + suit;
+            switch (value) {
+                case 1:
+                    retString += " A";
+                    break;
+                case 11:
+                    retString += " J";
+                    break;
+                case 12:
+                    retString += " Q";
+                    break;
+                case 13:
+                    retString += " K";
+                    break;
+                default:
+                    retString += ((value<10)? " " + value: value);
+            }
+
+            retString +=  "-" + suit;
         }
 
         retString += "]";
