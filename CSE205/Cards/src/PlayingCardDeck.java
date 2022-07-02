@@ -9,10 +9,11 @@
  * shuffle()
  * sort()
  * drawFromTop(): PlayingCard
- *      drawFromBottom: PlayingCard
- *      drawFromMiddle(index: int): PlayingCard
- * addCardToTop()
- * addCardToBottom()
+ *      drawFromBottom: PlayingCard //Maybe we will work on this.
+ *      drawFromMiddle(index: int): PlayingCard //Maybe we will work on this.
+ * ^addCardToTop(card:PlayingCard)
+ * ^addCardToBottom(card:PlayingCard)
+ * ^addCardToIndex(card:PlayingCard, index:int)
  * findAndDraw(card:PlayingCard): PlayingCard
  * inDeck(card:PlayingCard): boolean
  * 
@@ -60,7 +61,40 @@ public class PlayingCardDeck {
         if (cardCount == maxSize) {
             throw new IllegalStateException("Can't Add Card to Full Deck");
         }
+
+        addCardAtIndex(newCard,0);
     }
+
+    public void addCardAtIndex(PlayingCard newCard, int insertionIndex) throws IllegalStateException {
+        if (cardCount == maxSize) {
+            throw new IllegalStateException("Can't add card to full deck");
+        }
+
+        if ((insertionIndex > cardCount) || (insertionIndex < 0)) {
+            throw new IndexOutOfBoundsException("Can't add a card to an index outside of the deck limits");
+        }
+
+        for (int target = cardCount; target>insertionIndex; target--) {
+            cards[target] = cards[target-1];
+        }
+
+        cards[insertionIndex] = newCard;
+        cardCount++;
+    }
+
+    public PlayingCard drawFromTop() throws IllegalStateException{
+        if (cardCount == 0) {
+            throw new IllegalStateException("Can't draw from an Empty deck");
+        }
+            
+        PlayingCard drawnCard = cards[cardCount-1];
+        cards[cardCount-1] = null;
+        cardCount--;
+
+        return drawnCard;
+    }
+
+
 
     private void initStandardDeck() {
         cards = null; //Doing this to trigger the garbage collector
