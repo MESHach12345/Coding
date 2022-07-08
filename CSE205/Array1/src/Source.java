@@ -180,7 +180,7 @@ public class Source {
 
     public static int insertItemAt(int[] array, int currentSize, int insertIndex, int value) {
     if (currentSize == array.length) {
-        throw new IndexOutOfBoundsException("Arary already Full");
+        throw new IndexOutOfBoundsException("Array already Full");
     }
     currentSize++;
 
