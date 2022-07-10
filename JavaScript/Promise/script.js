@@ -1,21 +1,12 @@
-async function loadFile() {
-    let fileLoaded = false;
+const promise1 = new Promise((resolve, reject) => {
+    setTimeout(() => {
+        isReady = true;
+        isReady ? resolve("Soup is Ready") : reject("Soup is not available today");
+    }, 5000);
+})
 
-    if (fileLoaded) {
-        return ("File Loaded");
-    } else {
-        throw ("File NOT Loaded");
-    }
-}
+console.log(promise1
+    .then(success => console.log(success))
+    .catch(err => console.log(err)));
 
-async function startProcess() {
-    try{
-        let message = await loadFile();
-        console.log(message);
-    } catch(error) {
-        console.log(error);
-    }
-    
-}
-
-startProcess();
+// 
